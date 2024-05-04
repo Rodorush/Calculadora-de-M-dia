@@ -13,101 +13,112 @@ class MyApp extends StatelessWidget {
 }
 
 class AverageCalculator extends StatefulWidget {
-
   @override
-  State<StatefulWidget> createState() => _AverageCalculatorState();
+  _AverageCalculatorState createState() => _AverageCalculatorState();
 }
 
 class _AverageCalculatorState extends State<AverageCalculator> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Exercício Montagem GUI'),
+        title: Text('Tarefa Final D2DM1 2024.1'),
         backgroundColor: Colors.lightBlue,
         foregroundColor: Colors.white,
       ),
       body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              const Text(
-                'TELA DE CADASTRO',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+        padding: EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text(
+              'CALCULADORA DE MÉDIA',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 20),
+            TextField(
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: 'NOME',
               ),
-              const SizedBox(height: 20),
-              const Text('NOME:'),
-              const SizedBox(height: 7),
-              const TextField(
-                decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: 'Digite o nome'
-                ),
+            ),
+            SizedBox(height: 14),
+            TextField(
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: 'EMAIL',
               ),
-              const SizedBox(height: 28),
-              const Text('ENDEREÇO:'),
-              const SizedBox(height: 7),
-              const TextField(
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Digite o endereço',
-                ),
-              ),
-              const SizedBox(height: 28),
-              const Text('eMAIL:'),
-              const SizedBox(height: 7),
-              const TextField(
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Digite o email',
-                ),
-              ),
-              const SizedBox(height: 20),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: <Widget>[
-                  ElevatedButton(
-                    onPressed: () {
-                      _mostrarDialogo(context, 'Cancelar');
-                    },
-                    style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all<Color>(Colors.blue),
-                        shape: MaterialStateProperty.all<OutlinedBorder>(
-                            const RoundedRectangleBorder(
-                                borderRadius: BorderRadius.all(
-                                  Radius.circular(4.0),
-                                )
-                            )
-                        )
+            ),
+            SizedBox(height: 14),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Flexible(
+                  child: TextField(
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Nota 1',
                     ),
-                    child: const Text('CANCELAR',
-                        style: TextStyle(color: Colors.white)),
                   ),
-                  const SizedBox(width: 20),
-                  ElevatedButton(
-                    onPressed: () {
-                      _mostrarDialogo(context, 'Salvar');
-                    },
-                    style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all<Color>(Colors.blue),
-                        shape: MaterialStateProperty.all<OutlinedBorder>(
-                            const RoundedRectangleBorder(
-                                borderRadius: BorderRadius.all(
-                                  Radius.circular(4.0),
-                                )
-                            )
-                        )
+                ),
+                SizedBox(width: 10),
+                Flexible(
+                  child: TextField(
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Nota 2',
                     ),
-                    child: const Text('SALVAR',
-                        style: TextStyle(color: Colors.white)),
                   ),
-                ],
-              ),
-            ],
-          ),
+                ),
+                SizedBox(width: 10),
+                Flexible(
+                  child: TextField(
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Nota 3',
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: <Widget>[
+                ElevatedButton(
+                  onPressed: () {
+                    _mostrarDialogo(context, 'Cancelar');
+                  },
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.blue,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(4.0),
+                    ),
+                  ),
+                  child: Text(
+                    'CANCELAR',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+                SizedBox(width: 20),
+                ElevatedButton(
+                  onPressed: () {
+                    _mostrarDialogo(context, 'Salvar');
+                  },
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.blue,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(4.0),
+                    ),
+                  ),
+                  child: Text(
+                    'SALVAR',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );
@@ -118,14 +129,14 @@ class _AverageCalculatorState extends State<AverageCalculator> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('Caixa de Diálogo'),
+          title: Text('Caixa de Diálogo'),
           content: Text('Pressionado botão $acao.'),
           actions: [
             TextButton(
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: const Text('Fechar'),
+              child: Text('Fechar'),
             ),
           ],
         );
