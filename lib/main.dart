@@ -6,13 +6,20 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "Exercício Montagem GUI",
-      home: Home(),
+      title: "Tarefa Final D2DM1 2024.1",
+      home: AverageCalculator(),
     );
   }
 }
 
-class Home extends StatelessWidget {
+class AverageCalculator extends StatefulWidget {
+
+  @override
+  State<StatefulWidget> createState() => _AverageCalculatorState();
+}
+
+class _AverageCalculatorState extends State<AverageCalculator> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
