@@ -22,35 +22,35 @@ class _AverageCalculatorState extends State<AverageCalculator> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Tarefa Final D2DM1 2024.1'),
+        title: const Text('Tarefa Final D2DM1 2024.1'),
         backgroundColor: Colors.lightBlue,
         foregroundColor: Colors.white,
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Text(
+            const Text(
               'CALCULADORA DE MÉDIA',
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 20),
-            TextField(
+            const SizedBox(height: 20),
+            const TextField(
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
                 labelText: 'NOME',
               ),
             ),
-            SizedBox(height: 14),
-            TextField(
+            const SizedBox(height: 14),
+            const TextField(
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
                 labelText: 'EMAIL',
               ),
             ),
-            SizedBox(height: 14),
-            Row(
+            const SizedBox(height: 14),
+            const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Flexible(
@@ -81,42 +81,35 @@ class _AverageCalculatorState extends State<AverageCalculator> {
                 ),
               ],
             ),
-            SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: <Widget>[
-                ElevatedButton(
-                  onPressed: () {
-                    _mostrarDialogo(context, 'Cancelar');
-                  },
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.blue,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(4.0),
-                    ),
-                  ),
-                  child: Text(
-                    'CANCELAR',
-                    style: TextStyle(color: Colors.white),
+            const SizedBox(height: 14),
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                onPressed: _calculateAverage,
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.blue,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(4.0),
                   ),
                 ),
-                SizedBox(width: 20),
-                ElevatedButton(
-                  onPressed: () {
-                    _mostrarDialogo(context, 'Salvar');
-                  },
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.blue,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(4.0),
-                    ),
-                  ),
-                  child: Text(
-                    'SALVAR',
-                    style: TextStyle(color: Colors.white),
-                  ),
+                child: const Text(
+                  'CALCULA MÉDIA',
+                  style: TextStyle(color: Colors.white),
                 ),
-              ],
+              ),
+            ),
+            ElevatedButton(
+              onPressed: _calculateAverage,
+              style: ElevatedButton.styleFrom(
+                primary: Colors.blue,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(4.0),
+                ),
+              ),
+              child: const Text(
+                'SALVAR',
+                style: TextStyle(color: Colors.white),
+              ),
             ),
           ],
         ),
@@ -124,23 +117,6 @@ class _AverageCalculatorState extends State<AverageCalculator> {
     );
   }
 
-  void _mostrarDialogo(BuildContext context, String acao) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text('Caixa de Diálogo'),
-          content: Text('Pressionado botão $acao.'),
-          actions: [
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: Text('Fechar'),
-            ),
-          ],
-        );
-      },
-    );
+  void _calculateAverage() {
   }
 }
